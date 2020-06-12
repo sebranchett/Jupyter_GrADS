@@ -15,7 +15,9 @@ def result_and_time_options(metadata, varsKeys):
         description='Date stamp:',
     )
     
-    result_options = list(zip([i[0] for i in varsKeys], range(0,len(varsKeys))))
+    labels = [row[0]+":  "+" ".join(metadata[row[0]].split())
+              for row in varsKeys]
+    result_options = list(zip(labels, range(0,len(varsKeys))))
     result_widget = widgets.Dropdown(
         options=result_options,
         value=0,
