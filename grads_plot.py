@@ -24,6 +24,8 @@ def grads_plot(metadata, data, zeds, time_step, result_type, altitude_step):
     plt.figure(0,(12.,5.))
     heatmap = plt.pcolor(df)
     plt.title(" ".join(metadata[result_type].split())+" - "+metadata["TDEF"][time_step]+altitude_string)
+    plt.ylabel('latitude')
+    plt.xlabel('longitude')
     plt.yticks(np.arange(0, lenY, 5), df.index[0::5])
     plt.xticks(np.arange(0, lenX, 10), df.columns[0::10])
     plt.colorbar(heatmap)
