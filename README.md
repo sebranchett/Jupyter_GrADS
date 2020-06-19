@@ -6,7 +6,7 @@ Simple Jupyter notebook to display GrADS data for the ExoSPEEDY project.
 
 The easiest way to get this Jupyter notebook running is to use the Binder button above.
 
-If you want to use your own computer, the easiest way to get everything set up is using Anaconda, as described below.
+If you want to use your own data on your own computer, the easiest way to get everything set up is using Anaconda, as described below.
 
 Recommended reading: https://ipywidgets.readthedocs.io/en/latest/user_install.html
 
