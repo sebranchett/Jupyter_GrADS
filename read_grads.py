@@ -88,13 +88,11 @@ def read_data(metadata, varsKeys, grads_filename):
             for it in range(len(metadata["TDEF"])):
                 values.append(f.read_reals('>f4'))
             data[label] = values
-        elif nzed == len(metadata["ZDEF"]):
+        else:
             values = []
             for it in range(len(metadata["TDEF"])):
                 for ized in range(nzed):
                     values.append(f.read_reals('>f4'))
             data[label] = values
-        else:
-            print('Unexpected number of altitudes')
     f.close()
     return(data)

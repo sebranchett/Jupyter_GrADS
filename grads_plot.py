@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 def grads_plot(metadata, data, zeds, time_step, result_type, altitude_step):
-    if zeds != 0:
+    if zeds > 1:
         altitude_string = " - altitude "+str(metadata["ZDEF"][altitude_step])
         zed_multiplier = zeds
     else:
