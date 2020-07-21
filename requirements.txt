@@ -5,3 +5,4 @@ matplotlib
 ipywidgets
 ipyfilechooser
 jupyter_contrib_nbextensions
+pytest

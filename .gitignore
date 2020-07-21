@@ -2,3 +2,4 @@
 *.zip
 *.bak
 __pycache__/
+JupyterGrADS.egg-info/
