@@ -30,4 +30,4 @@ def grads_plot(metadata, data, zeds, time_step, result_type, altitude_step):
     plt.xticks(np.arange(0, lenX, 10), df.columns[0::10])
     plt.colorbar(heatmap)
 
-    return(plt)
+    return(plt.gca().invert_yaxis())  # north pole is -90
