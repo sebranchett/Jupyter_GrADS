@@ -31,4 +31,4 @@ def grads_plot(metadata, data, zeds, time_step, result_type, altitude_step):
     plt.colorbar(heatmap)
     plt.gca().invert_yaxis()  # north pole is -90
 
-    return(plt)
+    plt.show()
