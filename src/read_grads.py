@@ -6,11 +6,12 @@
 import numpy as np
 from scipy.io import FortranFile
 
+
 def read_metadata(filename):
     f = open(filename, "r")
     lines = f.read()
     f.close
-    
+
     lines = lines.replace("\r", "")
     lines = lines.split("\n")
     metadata = {}
@@ -20,23 +21,25 @@ def read_metadata(filename):
         if not continuation:
             try:
                 key, value = line.split(None, 1)
-            except:
+            except Exception:
                 key = line
-    
+
             key = key.strip()
-            
+
             if key in ["DSET", "TITLE", "OPTIONS"]:
                 metadata[key] = value.strip()
-    
+
             elif key == "UNDEF":
                 metadata[key] = float(value)
-    
+
             elif key in ["XDEF", "YDEF", "ZDEF", "TDEF"]:
                 fields = line.split(None)
                 linlev = fields[2]
                 if linlev == "LINEAR":
                     if key != "TDEF":
-                        metadata[key] = np.arange(float(fields[3]), int(fields[1])*float(fields[4]), float(fields[4]))
+                        metadata[key] = np.arange(float(fields[3]),
+                                        int(fields[1])*float(fields[4]),
+                                        float(fields[4]))
                     else:
                         nfields = int(fields[1])
                         tags = []
@@ -53,34 +56,33 @@ def read_metadata(filename):
                         continuation = True
                 else:
                     print("Unknown data grid:", linlev)
-    
+
             elif key == "VARS":
                 metadata[key] = int(value)
-    
+
             elif key != "ENDVARS" and key != "":
                 fields = line.split(None, 3)
                 metadata[key] = fields[3].strip()
-                varsKeys.append([key,int(fields[1])])
-                    
+                varsKeys.append([key, int(fields[1])])
+
         else:  # continuation line
             fields = line.split(None)
             levels += list(map(float, fields))
             if len(levels) == nlevels:
                 metadata[key] = levels
                 continuation = False
-    
+
     if len(varsKeys) != metadata["VARS"]:
         print("There is a problem with the VARS metadata")
-        print("VARS is ",metadata["VARS"],"but found",len(varsKeys),"variables")
-    
-    # print(metadata)
-    
+        print("VARS is ", metadata["VARS"], "but found", len(varsKeys),
+              "variables")
+
     return(metadata, varsKeys)
 
 
 def read_data(metadata, varsKeys, grads_filename):
     data = {}
-    
+
     f = FortranFile(grads_filename, 'r', '>u4')
     for label, nzed in varsKeys:
         if nzed == 0:
