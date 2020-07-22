@@ -1,10 +1,11 @@
 # Jupyter_GrADS
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/sebranchett/Jupyter_GrADS/master?filepath=grads_data.ipynb)
+![JupyterGrADS CI](https://github.com/sebranchett/Jupyter_GrADS/workflows/JupyterGrADS%20CI/badge.svg)
 
 Simple Jupyter notebook to display GrADS data for the ExoSPEEDY project.
 
-The easiest way to get this Jupyter notebook running is to use the Binder button above.
+The easiest way to get this Jupyter notebook running is to use the 'Launch Binder' button above.
 
 If you want to use your own data on your own computer, the easiest way to get everything set up is using Anaconda, as described below.
 
