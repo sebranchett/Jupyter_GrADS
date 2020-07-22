@@ -24,14 +24,6 @@ You only have to create the environment once.
 RUN 
 ```conda activate grads```
 
-## Create and install the JupyterGrADS module
-This installs the module to read and navigate GrADS .ctl and .grd files.
-
-In the ```src``` sub-directory RUN
-```pip install -e .```
-
-Return to the main directory.
-
 ## Create and install a kernel called 'grads'
 This allows you to use the environment just created in a Jupyter Notebook.
 
@@ -47,3 +39,13 @@ and, if something went wrong, uninstall it with:
 ```jupyter kernelspec uninstall py3widgets```
 
 In the Jupyter Notebook select the kernel "grads".
+
+## Running pytest
+If you wish to run pytest, then you need to install a package (found in the 'src' directory). From the main directory:
+
+RUN ```pip install -e .```
+
+You only need to do this once.
+Then from the main directory:
+
+RUN ```pytest```
